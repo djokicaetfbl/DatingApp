@@ -19,7 +19,7 @@ namespace API.Controllers
             _context = context;
         }
 
-       // [Authorize]
+       [Authorize]
         [HttpGet("auth")]
         public ActionResult<string> GetSecret()
         {
@@ -50,9 +50,9 @@ namespace API.Controllers
 
             //var thing = _context.User.Find(-1);
             //var thingToReturn = (thing == null ? "" : thing.ToString());
-            AppUser thing  = _context.User.Find(-1); // trebalo bi bez ? ali puca
+            AppUser thing  = _context.User.Find(-1); // trebalo bi bez ? ali puca, pa sam reko debugr-u da na ovaj exception ne staje vec da ide dalje
 
-            var thingToReturn = thing.ToString(); // trebalo bi bez ? ali puca
+            var thingToReturn = thing.ToString(); // trebalo bi bez ? ali puca, pa sam reko debugr-u da na ovaj exception ne staje vec da ide dalje
 
             return thingToReturn;
         }

@@ -30,7 +30,7 @@ export class ErrorInterceptor implements HttpInterceptor { // potrebno ga je reg
                 }
                 throw modalStateErrors.flat(); // ukljucimo es2019 u tsconfig.json
               } else {
-                this.toastr.error(error.statusText, error.status);
+                this.toastr.error(error.statusText, error.status + " - Bad Request");
               }
               break;
               
