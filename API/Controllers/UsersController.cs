@@ -34,7 +34,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        //public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers() // IEnumarable jednostavna iteracija kroz kolekciju odredjenog tipa // using System.Threading.Tasks; , zbog asinhronog progrmairanja, kako bi aplikacija bila akalabilna u uspjesno usluzila sve zahtjeve
+        //public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers() // IEnumarable jednostavna iteracija kroz kolekciju odredjenog tipa // using System.Threading.Tasks; , zbog asinhronog progrmairanja, kako bi aplikacija bila skalabilna i uspjesno usluzila sve zahtjeve
         public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
         {
             //return await _context.User.ToListAsync(); // ToList() nije asinhrona metoda , ali ToListAsync() jeste i u sklopu je paketa using Microsoft.EntityFrameworkCore;

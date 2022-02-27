@@ -19,7 +19,7 @@ namespace API.Entites
         public string Gender { get; set; }
         public string Introduction { get; set; }
         public string LookingFor { get; set; }
-        public string Interest { get; set; }
+        public string Interests { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
         public ICollection<Photo> Photos { get; set; } /* one to many, one user can have many photos, napravit ce kolonu u Tabeli Photo AppUserId - strani kljuc */

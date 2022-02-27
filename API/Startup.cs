@@ -25,7 +25,7 @@ namespace API
 {
     public class Startup
     {
-        private readonly IConfiguration _config;
+        private readonly IConfiguration _config; // stara notacija , ali ok
 
         public Startup(IConfiguration config)
         {

@@ -14,7 +14,7 @@ namespace API
 {
     public class Program
     {
-        //public static void Main(string[] args // posto hocemo Seed.cs podatke da ubacimo pa mjenjamo metodu
+        //public static void Main(string[] args // posto hocemo Seed.cs podatke da ubacimo pa mijenjamo metodu
         public static async Task Main(string[] args)
         {
             //CreateHostBuilder(args).Build().Run();

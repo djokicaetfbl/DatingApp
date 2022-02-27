@@ -21,8 +21,11 @@ import { TestErrorsComponent } from './errors/test-errors/test-errors.component'
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
+import { MemberCardComponent } from './members/member-card/member-card.component';
+import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 
-@NgModule({ // NgModule definise komponente koje su dostupne u tom modulu, a moguce je uvesti i druge module
+@NgModule({
+  // NgModule definise komponente koje su dostupne u tom modulu, a moguce je uvesti i druge module
   declarations: [
     AppComponent,
     NavComponent,
@@ -34,7 +37,8 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
     MessagesComponent,
     TestErrorsComponent,
     NotFoundComponent,
-    ServerErrorComponent
+    ServerErrorComponent,
+    MemberCardComponent,
   ],
   imports: [
     BrowserModule, // da bi nasa SPA aplikacija bila prikayana u veb pregledacu
@@ -45,8 +49,9 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
     SharedModule,
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true} // sa ovim multiple: true mi ne mjenjamo interceptor koji dolazi sa angularom, vec dodajemo nas ErrorInterceptor koji smo napravili
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }, // sa ovim multiple: true mi ne mjenjamo interceptor koji dolazi sa angularom, vec dodajemo nas ErrorInterceptor koji smo napravili
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent] // butstrapovanje AppComponent
+  bootstrap: [AppComponent], // butstrapovanje AppComponent
 })
-export class AppModule { }
+export class AppModule {}

@@ -17,20 +17,24 @@ const routes: Routes = [
     runGuardsAndResolvers: 'always',
     canActivate: [AuthGuard],
     children: [
-      { path: 'members', component: MemberListComponent, canActivate: [AuthGuard] },
-      { path: 'members/:id', component: MemberDetailComponent },
+      {
+        path: 'members',
+        component: MemberListComponent,
+        canActivate: [AuthGuard],
+      },
+      { path: 'members/:username', component: MemberDetailComponent },
       { path: 'lists', component: ListsComponent },
       { path: 'messages', component: MessagesComponent },
-    ]
+    ],
   },
   { path: 'errors', component: TestErrorsComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: 'server-error', component: ServerErrorComponent },
-  { path: '**', component: HomeComponent, pathMatch: 'full'}, // ako nijedna od prethodnih se ne podudara vrati ga na home component :D
+  { path: '**', component: HomeComponent, pathMatch: 'full' }, // ako nijedna od prethodnih se ne podudara vrati ga na home component :D
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
