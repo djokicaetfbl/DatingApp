@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Member } from 'src/app/_models/member';
 import { MembersService } from 'src/app/_services/members.service';
 
@@ -8,17 +9,19 @@ import { MembersService } from 'src/app/_services/members.service';
   styleUrls: ['./member-list.component.css'],
 })
 export class MemberListComponent implements OnInit {
-  members: Member[] | undefined;
+  //members: Member[] | undefined; // (komentar u ngOnInit objasnjava)
+  members$: Observable<Member[]> | undefined; // sa ovim $ na kraju naziva atributa naglasavamo da je rijec o Observable-u
 
   constructor(private memberService: MembersService) {}
 
   ngOnInit(): void {
-    this.loadMembers();
+    //this.loadMembers();
+    this.members$ = this.memberService.getMembers(); // jer smo uveli reaktivnost pomocu operatora 'of' iz rxjs metodi getMembers() iz membersService rekla da upravo pomocu operatora 'of' vraca Observable
   }
 
-  loadMembers() {
+  /*loadMembers() { ovo nam vise ne treba jer smo uveli reaktivnost, (komentar u ngOnInit objasnjava)
     this.memberService.getMembers().subscribe((members) => {
       this.members = members;
     });
-  }
+  }*/
 }

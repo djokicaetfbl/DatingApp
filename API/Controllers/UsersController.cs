@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using API.Data;
 using API.DTOs;
@@ -65,5 +66,23 @@ namespace API.Controllers
             //return _mapper.Map<MemberDto>(user);
            
         }
+
+        [HttpPut]
+        public async Task<ActionResult> UpdateUser(MemberUpdateDto memberUpdateDto)
+        {
+            var username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var user = await _userRepository.GetUserByUsernameAsync(username);
+
+   
+            _mapper.Map(memberUpdateDto, user); // koristimo Map f-ju iz AutoMapperProfile.cs kako ne bismo za svaki atribut trebal ida radimo: user.city = memberUpdateDto.city vec to definisemo u AutoMapperProfile.cs sa CreateMap()
+
+            _userRepository.Update(user); // redefinisali smo u _userRepository ef Update
+
+            if (await _userRepository.SaveAllAsync()) return NoContent();
+            // u _userRepository (IUserRepository) naveli mso osnove ef metode i onda ih redefinisali tako sto smo o5 pozvai ef metode :D
+
+            return BadRequest("failed to update user!");
+        }
+
     }
 }
