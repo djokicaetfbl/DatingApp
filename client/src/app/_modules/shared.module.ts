@@ -4,6 +4,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ToastrModule } from 'ngx-toastr';
 import { TabsModule } from 'ngx-bootstrap/tabs'; // da iuvedemo tabove iz ngx-bootstrap
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [],
@@ -16,6 +17,7 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
     }),
     TabsModule.forRoot(), // uveden je tabs module iz ngx-bootstrap : https://valor-software.com/ngx-bootstrap/#/documentation
     NgxGalleryModule,
+    FileUploadModule,
   ],
 
   exports: [
@@ -24,6 +26,7 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
     ToastrModule,
     TabsModule,
     NgxGalleryModule,
+    FileUploadModule,
   ],
 })
 export class SharedModule {}
