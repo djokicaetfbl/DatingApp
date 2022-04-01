@@ -9,7 +9,7 @@ import { User } from '../_models/user';
 //sa komponentama je drugacije, kako se prebacujemo sa komponente na komponentu ona se 'unistava'
 
 @Injectable({
-  // pomocu Injecstable dekorata, ovaj servis moze da da bude injektovan u drugu komponentu ili u drugi servis unutar aplikacije
+  // pomocu Injectable dekorata, ovaj servis moze da da bude injektovan u drugu komponentu ili u drugi servis unutar aplikacije
   providedIn: 'root', // ne moramo ga ukljuciti u provides unutar appcomponent.ts  ( u nekim starijim verzijama je moralo da se u appcomponent.ts da se ukljuci)
 })
 export class AccountService {
@@ -36,7 +36,7 @@ export class AccountService {
         if (user) {
           this.setCurrentUser(user);
         }
-        //return user; // sad smo sigurni da vraca user-a, nece u console.log za response da ispisuje undefined vec ce da ispise konkretnoga user-a
+        //return user; // sad smo sigurni da vraca user-a, nece u console.log za response da ispisuje undefined vec ce da ispise konkretnog user-a
       })
     );
   }

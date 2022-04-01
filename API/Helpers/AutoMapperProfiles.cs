@@ -18,6 +18,7 @@ namespace API.Helpers
                 src.DateOfBirth.CalculateAge())); // calculateAge je extension metoda koju smo implementirali za c#-ov DateTime 
             CreateMap<Photo, PhotoDto>();
             CreateMap<MemberUpdateDto, AppUser>();
+            CreateMap<RegisterDto, AppUser>();
         }
     }
 }
